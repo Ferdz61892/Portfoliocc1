@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group10 Online Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        body {
+            background-color: #ece5e5;
+            color: #140e0e;
+            line-height: 1.6;
+        }
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+}
+.logo-img {
+    width: 40px; 
+    height: auto;
+    transition: transform 0.3s ease;
+}
+.logo:hover .logo-img {
+    transform: rotate(15deg); 
+}
+header {
+    padding: 10px 0;
+}
+{
+            font-size: 24px;
+            font-weight: bold;
+            color: #227526;
+        }
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('IT.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: rgb(253, 255, 253);
+            margin-top: 60px;
+        }
+        .hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    height: 90%;
+}
+
+.hero h1 {
+    margin-top: 0px;
+}
+
+.hero p {
+    margin-bottom: 10px;
+    align-self: flex-end; 
+    width: 100%;
+}
+        section {
+            padding: 80px 0;
+        }
+        .section-title {
+            font-size: 2.5rem;
+            color: #227526;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .gallery {
+            background-color: white;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            aspect-ratio: 4/3;
+        }
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 10px;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+        .about-section {
+            background-color: #f9f9f9;
+        }
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        .member-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            text-align: center;
+        }
+        .member-card:hover {
+            transform: translateY(-10px);
+        }
+        .member-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            margin: 0 auto 20px;
+            border: 3px solid #227526;
+        }
+        .member-card h3 {
+            color: #227526;
+            margin-bottom: 10px;
+        }
+        .group-description {
+            max-width: 800px;
+            margin: 40px auto 0;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .contact-section {
+            background-color: white;
+            padding: 80px 0;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .contact-info {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .contact-info h3 {
+            color: #227526;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .info-icon {
+            font-size: 1.2rem;
+            color: #227526;
+            margin-right: 15px;
+            width: 30px;
+            text-align: center;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background: #227526;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background: #1a5e1f;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                padding: 0 20px;
+            }
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        .social-icons a:hover {
+            color: #4CAF50;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1, .section-title {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Group10 Online Portfolio</title>
+            <style>
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                    font-family: 'Arial', sans-serif;
+                }
+                
+                .logo {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    font-size: 24px;
+                    font-weight: bold;
+                    color: #227526;
+                }
+                
+                .logo-img {
+                    width: 45px;
+                    height: 45px;
+                    object-fit: contain;
+                    transition: transform 0.3s ease;
+                }
+                
+                .logo:hover .logo-img {
+                    transform: scale(1.2);
+                }
+            </style>
+        </head>
+        <body>
+            <header>
+                <div class="header-container">
+                    <div class="logo">
+                        <img src="L.png" alt="Group10 Logo" class="logo-img">
+                        Group10 Online Portfolio
+                    </div>
+                    <nav>
+                        <a href="index.html">Home</a>
+                        <a href="gallery.html">Gallery</a>
+                        <a href="blog.html">Blog</a>
+                        <a href="about.html">About Us</a>
+                        <a href="#contact">Get in Touch</a>
+                    </nav>
+                </div>
+            </header>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to (Group10) Portfolio</h1>
+            <p>We made a quick compilation of some of the lessons and activities we covered for this semester. 
+                All thanks to our teacher who worked hard to make sure that we learned everything.
+            </p>
+            
+        </div>
+    </section>
+    
+    <section class="welcome-section">
+        <div class="container">
+        </div>
+    </section>
+    <section class="gallery">
+        <div class="container">
+            <h2 class="section-title">Gallery</h2>
+            Throughout this semester, we've collaborated on various projects and assignments, combining our unique skills to create meaningful work. This portfolio represents our collective effort and the knowledge we've gained under our teacher's guidance. Please feel free to explore!</p>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="11.jpg" alt="Activity 3">
+                    <img src="11.1.jpg" alt="Activity 3">
+                    <div class="gallery-caption">Programming: Decimal to Binary Calculator</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="12.jpg" alt="Activity 3">
+                    <div class="gallery-caption">Programming: Radix Converter</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="5.1-1.jpg" alt="Activity 1">
+                    <img src="5.1-2.jpg" alt="Activity 1">
+                    <div class="gallery-caption">Project Charter and Stakeholder Analysis</div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="5.2-1.jpg" alt="Activity 2">
+                    <img src="5.2-2.jpg" alt="Activity 2">
+                    <div class="gallery-caption">Charting: Work Breakdown Structure and Gantt Chart</div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="5.3-1.jpg" alt="Activity 3">
+                    <img src="5.3-2.jpg" alt="Activity 3">
+                    <img src="5.3-3.jpg" alt="Activity 3">
+                    <div class="gallery-caption">Preparing: Risk Management and Quality Planning</div>
+                </div>
+                    <div class="gallery-item">
+                        <img src="cc1.jpg" alt="Activity 4">
+                        <div class="gallery-caption">Pixel</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="blog-section">
+        <div class="container">
+            <h2 class="section-title">Blog Section</h2>
+            <p>"These bitwise and arithmetic calculators showcase our semester's key learnings. From binary operations to complex calculations, witness how we've translated classroom theory into functional applications."</p>
+ 
+            <div class="video-container">
+                <iframe 
+                    width="100%" 
+                    height="500" 
+                    src="V1.mp4" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div class="video-container">
+                <iframe 
+                    width="100%" 
+                    height="500" 
+                    src="V2.mp4" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div class="blog-description">
+                <h3>Bitwise and Arithmetic </h3>
+            </div>
+        </div>
+    </section>
+    <section class="about-section">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <p>This portfolio showcases our journey through the semester, Together, we tackled challenges, shared knowledge, and pushed each other to deliver our best work.</p>
+            <div class="group-description">
+                <h3>People behind this Project</h3>
+            <div class="members-grid">
+                <div class="member-card">
+                    <div class="member-image" style="background-image: url('Cj.jpg');"></div>
+                    <h3>Castress, Tristan Cj</h3>
+                </div>
+                <div class="member-card">
+                    <div class="member-image" style="background-image: url('cr.jpeg');"></div>
+                    <h3>Gotim, Chris Jomari</h3>
+                </div>
+                <div class="member-card">
+                    <div class="member-image" style="background-image: url('Dn.jpeg');"></div>
+                    <h3>Sotto, Danniella Schenly Summer</h3>
+                </div>
+                <div class="member-card">
+                    <div class="member-image" style="background-image: url('Dr.jpeg');"></div>
+                    <h3>Villanueva, Dharren Kyle</h3>
+                </div>
+                <div class="member-card">
+                    <div class="member-image" style="background-image: url('F.jpg');"></div>
+                    <h3>Eheta, Ferdinand</h3>
+                </div>
+            </div>
+            
+            </div>
+        </div>
+    </section>
+    
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <h4>Location</h4>
+                            <p>101D Mahanapan St. Siraulo City 010101</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>group10@CJ-lang.malakas.com</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+63 912 345 6789</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-clock"></i></div>
+                        <div>
+                            <h4>Availability</h4>
+                            <p>Mon-Fri: 9AM - 5PM</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject">
+                                <option value="general">General Inquiry</option>
+                                <option value="project">Project Collaboration</option>
+                                <option value="feedback">Feedback</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; Basta kalbo, walang buhok sa ulo.</p>
+            <p>Shock Knee The Dim</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
